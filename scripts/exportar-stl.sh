@@ -40,7 +40,6 @@ mkdir -p "$directorio_stl"
 
 # nombre:directorio:archivo-fuente:llamada-al-modulo
 piezas=(
-  "bote_caja:bote:bote_caja.scad:bote_caja(BOTE_HP)"
   "ataconso_caja:ataconso:ataconso_caja.scad:ataconso_caja()"
   "ataconso_panel:ataconso:ataconso_panel.scad:ataconso_panel()"
   "compa_caja:compa:compa_caja.scad:compa_caja()"

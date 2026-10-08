@@ -28,11 +28,10 @@ Esto deja los archivos en `stl-<version>/`, donde `<version>` es el valor de `VE
 - [scripts/](./scripts/): scripts para mantenimiento, linting y exportado a `.stl` de los archivos.
 - [LICENSE](./LICENSE): licencia del repositorio.
 - [README.md](./README.md): este archivo, con información del repositorio.
-- [comun/](./comun/): archivos comunes a todas las cajas y paneles, con constances y funciones.
+- [comun/](./comun/): archivos comunes a todas las cajas y paneles, con constantes y funciones. Se pueden usar desde otros repositorios, ver [Uso como biblioteca](#uso-como-biblioteca).
 
 ### Cajas y paneles de los módulos
 
-- [bote](./bote/)
 - [ataconso](./ataconso/)
 - [compa](./compa/)
 - [envo](./envo/)
@@ -44,6 +43,27 @@ Esto deja los archivos en `stl-<version>/`, donde `<version>` es el valor de `VE
 - [rerelo](./rerelo/)
 - [secu](./secu/)
 - [suma](./suma/)
+
+## Uso como biblioteca
+
+Otros proyectos pueden usar [comun/](./comun/) como biblioteca de constantes y funciones, agregando este repositorio como submódulo de git fijado a un tag:
+
+```bash
+git submodule add https://github.com/piruetasxyz/popusintes-cajas-paneles.git terceros/popusintes-cajas-paneles
+git -C terceros/popusintes-cajas-paneles checkout <tag>
+```
+
+e incluyendo el punto de entrada [comun/comun.scad](comun/comun.scad), con una ruta relativa al archivo `.scad` que lo usa:
+
+```openscad
+include <../terceros/popusintes-cajas-paneles/comun/comun.scad>
+```
+
+`comun.scad` no incluye [comun/versiones.scad](comun/versiones.scad): cada proyecto define su propia `VERSION` y las constantes de sus módulos. Por eso los archivos de `comun/` no deben dibujar geometría al nivel superior, solo definir constantes, funciones y módulos.
+
+Proyectos que usan esta biblioteca:
+
+- [bote](https://github.com/piruetasxyz/bote): caja de varios módulos con rieles. Vivía en este repositorio hasta octubre 2026.
 
 ## Versiones
 

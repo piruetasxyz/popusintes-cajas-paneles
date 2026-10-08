@@ -6,9 +6,6 @@ include <./constantes.scad>
 // grabado igual en cada pieza exportada
 VERSION = "v0.0.11";
 
-BOTE_TEXTO = "bote";
-BOTE_HP = 48;
-
 ATACONSO_TEXTO = "ataconso";
 ATACONSO_HP = 5;
 
